@@ -1,0 +1,2 @@
+#Comando docker run de grafana psicoapp con certificado.
+docker run -u $(id -u root):$(id -g root) -d -p 3000:3000 -e "GF_SECURITY_ALLOW_EMBEDDING=true" -e "GF_SERVER_PROTOCOL=https" -e "GF_SERVER_CERT_FILE=/etc/letsencrypt/live/psicoapp.online/fullchain.pem" -e "GF_SERVER_CERT_KEY=/etc/letsencrypt/live/psicoapp.online/privkey.pem" --name=grafana -v grafana-storage:/var/lib/grafana -v /etc/letsencrypt:/etc/letsencrypt grafana/grafana

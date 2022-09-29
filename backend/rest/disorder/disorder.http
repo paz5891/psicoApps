@@ -1,0 +1,6 @@
+@hostdev = http://localhost:4000/psicoapp/v1/diagnostic
+
+###
+# Retorna el conjunto de trastornos 
+GET {{hostdev}}/disorders
+Content-Type: application/json

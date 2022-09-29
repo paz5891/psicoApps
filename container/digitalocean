@@ -1,0 +1,8 @@
+
+docker run --name psicoapp-db -p 3306:3306 -v /root/psicoapp/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=xxxx -d mysql:8.0.21
+
+docker run --name solventeapp-db -p 1433:1433 -v /root/solventeapp/data:/var/opt/mssql/data -e ACCEPT_EULA=Y MSSQL_SA_PASSWORD=AYzea3gvfmN6BZlkLSo5 -d mcr.microsoft.com/mssql/server:latest
+
+
+
+mcr.microsoft.com/mssql/server:2019-CU4-ubuntu-18.04 --environment-variables ACCEPT_EULA=Y MSSQL_SA_PASSWORD=AYzea3gvfmN6BZlkLSo5 --dns-name-label solventeapp-sql-dev  --cpu 2  --memory 2  --port 1433 --azure-file-volume-account-name $ACI_PERS_STORAGE_ACCOUNT_NAME --azure-file-volume-account-key $STORAGE_KEY --azure-file-volume-share-name $ACI_PERS_SHARE_NAME --azure-file-volume-mount-path /var/opt/mssql/data

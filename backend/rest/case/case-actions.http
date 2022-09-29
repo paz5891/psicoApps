@@ -1,0 +1,23 @@
+# @hostdev = http://138.197.215.60:4000/psicoapp/v1/cases
+
+@hostdev = http://localhost:4000/psicoapp/v1/cases
+
+
+###
+# Desistimiento de caso
+# El caso pasa de estado ocupado a estado desistido
+# parámetros: id del caso
+# Authorization: Bearer token_user
+# http://host:4000/psicoapp/v1/cases/desistment/:idcase
+PUT {{hostdev}}/desistment/4a7131b1-51ba-4ae5-8b0b-74c5dddcb6de
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMDM3MzQxODQ4NDU1ODA0NjEyMjYiLCJpYXQiOjE2MDU3Njg0MDN9.jF23KYmp1zjVY_uPdvwhGTmRSW5Wy8tx5bODp-Va1ZA
+
+####
+# Confirmación de desistimiento de caso
+# El caso pasa de estado desistido a estado ocupado
+# parámetros: id del caso
+# Query: desist= true || false
+# Authorization: Bearer token_admin
+# http://host:4000/psicoapp/v1/cases/desistment/confirm/:idcase?desist=boolean
+PUT {{hostdev}}/desistment/confirm/4a7131b1-51ba-4ae5-8b0b-74c5dddcb6de?desist=falsef
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJhZG1pbiIsInN1YiI6IjEwODgzNDI4NTU3NjYwMzAyMTg3NSIsImlhdCI6MTYwNjM1NDgzOH0.6G9o1DmcMmyPnusZI3cSTRdQ-1d9A1kYeHxGb7OTq3U

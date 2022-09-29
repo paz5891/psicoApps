@@ -1,0 +1,121 @@
+##
+## Para pruebas de desarollo utilice hostdev, esto hará las llamadas en local.
+## Para pruebas de producción cambie a host.
+
+@host = http://138.197.215.60:4000/psicoapp/v1/persons/
+@hostdev = http://localhost:4000/psicoapp/v1/persons/
+
+###
+# Para crear un registro de person
+# En este caso  necesita consultas auxiliares, para la religion 
+# en el archivo religion.http y para ciudad en el archivo city.http
+POST {{hostdev}}create
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMDM3MzQxODQ4NDU1ODA0NjEyMjYiLCJpYXQiOjE2MDUyNTIxMDl9.OZANBTHjHRq7CKUzTAIuYhWf5rDtcmhzBcNT9S3XA1Y
+Content-Type: application/json
+
+{
+  "firstName":"Byron",
+  "secondName":"Daniel",
+  "lastName":"Isales",
+  "secondLastName":"Marroquín",
+  "marriedName":"",
+  "bornDate":"1998-11-22",
+  "mobilePhone":"45720194",
+  "email":"",
+  "gender":"M",
+  "uuidReligion":"",
+
+  "firstNameFather":"",
+  "secondNameFather":"",
+  "lastNameFather":"",
+  "secondLastNameFather":"",
+  "firstNameMother":"",
+  "secondNameMother":"",
+  "lastNameMother":"",
+  "secondLastNameMother":"",
+  "firstNameExtra":"",
+  "secondNameExtra":"",
+  "lastNameExtra":"",
+  "secondLastNameExtra":"",
+
+  "uuidCity":"001", 
+  "addressLine1":"Bo, Jalapa", 
+  "addressLine2":"addressLine2",
+  "phoneNumber":"36079850",
+
+  "comment":"Otro al respecto",
+  "attachment":"image.png" 
+}
+
+
+###
+# Obtiene un registro por id con información necesaria para visualizar
+## CAMBIO A http://localhost:4000/psicoapp/v1/persons/:id
+GET {{hostdev}}2020-PASP13-00018
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMDM3MzQxODQ4NDU1ODA0NjEyMjYiLCJpYXQiOjE2MDUyNTIxMDl9.OZANBTHjHRq7CKUzTAIuYhWf5rDtcmhzBcNT9S3XA1Y
+Content-Type: application/json
+
+###
+# Esta retorna un registro con full data para poder actualizar el registro
+## CAMBIO A http://localhost:4000/psicoapp/v1/persons/fulldata/:id
+GET {{hostdev}}fulldata/2020-PASP13-00018
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMDM3MzQxODQ4NDU1ODA0NjEyMjYiLCJpYXQiOjE2MDUyNTIxMDl9.OZANBTHjHRq7CKUzTAIuYhWf5rDtcmhzBcNT9S3XA1Y
+
+###
+# Actualiza campos los campos del registro asignados al :id
+# IMPORTANTE: changefile=namefilefromdb, debe enviar el changefile, 
+# cuando el attachment este sustituirá al de la db.
+# http://localhost:4000/psicoapp/v1/persons/:id
+PUT {{hostdev}}2020-PASP13-00018
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMDM3MzQxODQ4NDU1ODA0NjEyMjYiLCJpYXQiOjE2MDUyNTIxMDl9.OZANBTHjHRq7CKUzTAIuYhWf5rDtcmhzBcNT9S3XA1Y
+
+{
+  "uuidPerson": "d5beb2cf-13dd-42a6-8d22-b0dea4658aff",
+  "firstName": "Eraldo c",
+  "secondName": "Cervantes",
+  "lastName": "asdfsda",
+  "secondLastName": "sdafasd",
+  "marriedName": "asdfsadf",
+  "bornDate": "2013-06-12",
+  "uuidRole": "f773d0e2-6f64-4957-8ad4-179455994849",
+  "mobilePhone": "asdf",
+  "email": "asdf",
+  "uuidReligion": null,
+  "firstNameFather": "asdfasd",
+  "secondNameFather": "asdfasdf",
+  "lastNameFather": "asdf",
+  "secondLastNameFather": "asdf",
+  "firstNameMother": "asdf",
+  "secondNameMother": "asdf",
+  "lastNameMother": "asdf",
+  "secondLastNameMother": "asdf",
+  "firstNameExtra": "asdf",
+  "secondNameExtra": "asdf",
+  "lastNameExtra": "asdf",
+  "secondLastNameExtra": "asdf",
+  "attachment": "werwer.txt",
+  "comment": "<p>asdfsadfassdf</p>",
+  "uuidCity": "001",
+  "addressLine1": "Pueblo Abajo, Sansare, El progreso",
+  "addressLine2": "12",
+  "phoneNumber": "47241772",
+  "active": 1,
+  "gender": "F",
+  "changeFile":"werwer.txt"
+}
+
+
+###
+# Borrado de un registro de persona
+# Unicamente lo cambia de estado activo a inactivo como forma de auditoria
+# CAMBIO A http://localhost:4000/psicoapp/v1/persons/:id
+DELETE {{hostdev}}2020-PAS27-00018
+
+
+###
+# Retorna los registros de las personas en estado activo, si necesita usar
+# inactivo, por favor vaya a person-grid.http para consultar los metodos
+## CAMBIO A http://localhost:4000/psicoapp/v1/persons
+GET {{hostdev}}
+Content-Type: application/json

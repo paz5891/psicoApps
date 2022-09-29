@@ -1,0 +1,35 @@
+# Suscripciones
+az account list --output table
+
+#variables
+$ACI_PERS_RESOURCE_GROUP="psicoappresources"
+$ACI_PERS_STORAGE_ACCOUNT_NAME="psicoappstorageaccount"
+$ACI_PERS_LOCATION="southcentralus"
+$ACI_PERS_SHARE_NAME="psicoappfileshared"
+$ACI_PERS_DBDEV="psicoapp-mysql-dev"
+
+#crear un grupo de recursos para psicoapp
+az group create -l $ACI_PERS_LOCATION -n $ACI_PERS_RESOURCE_GROUP
+
+#Crear storage account 
+az storage account create  --resource-group $ACI_PERS_RESOURCE_GROUP --name $ACI_PERS_STORAGE_ACCOUNT_NAME --location $ACI_PERS_LOCATION --sku Standard_LRS 
+
+#crear file shared
+az storage share create --name $ACI_PERS_SHARE_NAME --account-name $ACI_PERS_STORAGE_ACCOUNT_NAME
+
+
+# llenar clave del storage account
+$STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_GROUP --account-name $ACI_PERS_STORAGE_ACCOUNT_NAME --query "[0].value" --output tsv)
+echo $STORAGE_KEY
+
+#docker pull mysql:8.0.21
+#/var/lib/mysql
+#aci mysql
+az container create --resource-group $ACI_PERS_RESOURCE_GROUP --name $ACI_PERS_DBDEV --image mysql:8.0.21 --environment-variables MYSQL_ROOT_PASSWORD=xxxxxxx --dns-name-label psicoapp-mysql-dev --cpu 2 --memory 2 --port 3306 --azure-file-volume-account-name $ACI_PERS_STORAGE_ACCOUNT_NAME --azure-file-volume-account-key $STORAGE_KEY --azure-file-volume-share-name $ACI_PERS_SHARE_NAME --azure-file-volume-mount-path /var/lib/mysql
+
+#aci drop mysql
+az container delete --name $ACI_PERS_DBDEV --resource-group  $ACI_PERS_RESOURCE_GROUP
+
+
+azure container registry
+

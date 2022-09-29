@@ -1,0 +1,37 @@
+@hostdev = http://localhost:4000/psicoapp/v1/country
+
+#Sirve para agregar un país
+
+###
+POST {{hostdev}}
+Content-Type: application/json
+
+{
+    "isoName": "GUA",
+    "name": "Guatemala"
+}
+
+#Sirve para editar un país
+#Se debe enviar el uuid de país a editar
+
+###
+PUT {{hostdev}}/70cb7269-91d4-4910-8d2e-f53ddc5fa8d6
+Content-Type: application/json
+
+{
+    "isoName": "MX",
+    "name": "Mexico"
+}
+
+#Solicitud para mostrar todos los paises registrados
+
+###
+GET {{hostdev}}
+Content-Type: application/json
+
+#Solicitud para mostrar un país en específico
+#Es necesario enviar el uuid delpaís que se quiere obtener
+
+###
+GET {{hostdev}}/001
+Content-Type: application/json

@@ -1,0 +1,49 @@
+# Docker
+# Build a Docker image 
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger:
+  branches:
+      include:
+      - master
+  paths:
+    include:
+    - backend/*
+pr: none
+resources:
+- repo: self
+
+variables:
+  tag: '$(Build.BuildId)'
+
+stages:
+- stage: Build
+  displayName: Build image
+
+  jobs:  
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+    - task: Bash@3
+      inputs:
+        targetType: 'inline'
+        script: 'docker login -u "$(DHA)" -p "$(DHP)" docker.io'
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'Psicoapp docker hub'
+        repository: 'psicoapp/backpsicoapp'
+        command: 'buildAndPush'
+        Dockerfile: './backend/backpsicoapp.dockerfile'
+    - task: SSH@0
+      inputs:
+        sshEndpoint: 'psicoappumg'
+        runOptions: 'commands'
+        commands: |
+          docker ps -a -q --filter "name=backpsicoapp" | grep -q . && docker stop backpsicoapp && docker rm -fv backpsicoapp || exit 0
+          echo "$(DHP)" | docker login --username '$(DHA)' --password-stdin 2>/dev/null
+          docker pull psicoapp/backpsicoapp:$(tag)
+          docker run -v /etc/letsencrypt:/etc/letsencrypt --name backpsicoapp -p 4000:4000 -d psicoapp/backpsicoapp:$(tag)
+        readyTimeout: '20000'
+        

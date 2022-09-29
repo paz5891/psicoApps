@@ -1,0 +1,220 @@
+@import "~ed-grid/ed-grid";
+
+.pantient-title {
+  // border: thin solid red;
+  margin-bottom: 1rem;
+}
+
+.pantient-btncreate {
+  color: white;
+  background: var(--color);
+  border: none;
+  padding: .5rem 1rem;
+  border-radius: 10px;  
+}
+
+.container {
+  padding: 0 1rem;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ece7e7;
+  padding: .5em;
+  border-radius: 10px;
+  height: 3rem ;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-order {
+  display: block;
+  width: 40%;
+  border: none;
+  margin-right: 1rem;
+  background: none;
+}
+.search-pantient {
+  display: block;
+  width: 100%;
+  border: none;
+  background: none;
+}
+
+.icon-search {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.mb-6 {
+  margin-bottom: 6rem;
+}
+
+.button1 {
+  border: none;
+  width: 100%;
+  color: white;
+  background: var(--color);
+  padding: 7px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: auto;
+  border-radius: 5px;
+
+  @include from(m) {
+    width: 20%;
+  }
+  @include from(l) {
+    width: 20%;
+  }
+}
+
+.button11 {
+  width: 100%;
+  border: none;
+  color: black;
+  background: #ece7e7;
+  padding: 7px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: auto;
+  border-radius: 5px;
+  margin-right: 1rem;
+
+  @include from(m) {
+    width: 20%;
+  }
+
+  @include from(l) {
+    width: 20%;
+  }
+}
+.btn-link {
+  margin-right: 0;
+  padding: 7px;
+
+  @include from(m) {
+    width: 100%;
+  }
+
+}
+
+.form1 {
+  margin-bottom: 1rem;
+}
+.color-red {
+  background-color: rgb(182, 85, 85);
+}
+
+.alert {
+  background-color: rgb(228, 236, 183);
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.menu-wizard {
+  display: block;
+  width: 33.33333333333333%;
+  border: none;
+  background-color: rgb(243, 243, 243);
+  padding: .5rem 0;
+}
+
+.paso {
+  background-color: white;
+  border-top: #ece7e7 1px solid;
+  border-right: #ece7e7 1px solid;
+  border-left: #ece7e7 1px solid;
+}
+.mt1 {
+  margin-bottom: 2rem;
+}
+
+.mt-11 {
+  margin-top: 2rem;
+}
+
+// FILE
+
+
+.form {
+  width: 100%;
+}
+
+.file-upload-wrapper {
+  $defaultColor: #ece7e7 ;
+  $height: 30px;
+  
+  position: relative;
+  width: 100%;
+  height: $height;
+  border: thin solid #dbdbdb;
+  border-radius: 5px;
+ 
+  
+  &:after {
+    content: attr(data-text);
+    font-size: 14px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
+    padding: 10px 15px;
+    display: block;
+    width: calc(100% - 20px);
+    pointer-events: none;
+    z-index: 20;
+    height: $height - 20px;
+    line-height: $height - 20px;
+    color: #999;
+    border-radius: 5px 10px 10px 5px;
+    font-weight: 300;
+  }
+  
+  &:before {
+    content: 'Subir';
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    height: 30px;
+    background: $defaultColor;
+    color: #000000;
+    font-weight: 700;
+    z-index: 25;
+    font-size: 16px;
+    line-height: $height;
+    padding: 0 15px;
+    text-transform: uppercase;
+    pointer-events: none;
+    border-radius: 0 5px 5px 0;
+  }
+  
+  &:hover {
+    &:before {
+      background: darken($defaultColor, 10%);
+    }
+  }
+   input {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    height: $height;
+    margin: 0;
+    padding: 0;
+    display: block;
+    cursor: pointer;
+    width: 100%;
+  }
+}

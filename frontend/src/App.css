@@ -1,0 +1,14 @@
+.bloqueiz{
+    width:540px;
+    float:left;
+}
+.bloquede{
+    width:545px;
+    float:right;
+}
+.bloqueiz2{
+    margin-bottom: 10px;
+}
+.ocultar{
+    display: none;
+}

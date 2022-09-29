@@ -1,0 +1,39 @@
+@hostdev = http://localhost:4000/psicoapp/v1/disorders
+
+@host = http://138.197.215.60:4000
+
+#Esta ruta sirve para crear un nuevo trastorno
+###
+POST {{hostdev}}/diagnostic/dsm
+Content-Type: application/json
+
+{
+    "name": "Donde la persona hace una o más pausas en la respiración o tiene respiraciones superficiales durante el sueño.",
+    "r_description": "Es un trastorno identificado como unico para todos los que duermen"
+}
+
+#Este actualiza un trastorno en específico
+#Requiere como parametro el uuid del trastorno que se quiere modificar
+
+###
+PUT {{hostdev}}/diagnostic/dsm/809c839e-ef66-4074-8c1c-2395741a4c54
+Content-Type: application/json
+
+{
+    "name": "Esquizofrenia",
+    "r_description": "pueden tener delirios, alucinaciones, lenguaje o comportamiento desorganizado y capacidad cognitiva alterada."
+}
+
+#Retorna todos los trastornos que han sido agregados hasta la fecha
+
+###
+GET {{hostdev}}/diagnostic/getall
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJhZG1pbiIsInN1YiI6IjEwODgzNDI4NTU3NjYwMzAyMTg3NSIsImlhdCI6MTYwNTA1NTMyNH0.so4eniO3Jh1YJSjaZ7RKpU-Y2LG--Dl3E42KppryYsE
+Content-Type: application/json
+
+#Retorna un trastorno en específico
+#recibe como parámetro el uuid del trastorno
+
+###
+GET {{hostdev}}/diagnostic/singledsm/809c839e-ef66-4074-8c1c-2395741a4c54
+Content-Type: application/json

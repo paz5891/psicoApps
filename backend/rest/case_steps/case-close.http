@@ -1,0 +1,42 @@
+@hostdev = http://138.197.215.60:4000/psicoapp/v1/cases
+
+@host = http://localhost:4000/psicoapp/v1/cases
+
+
+# Crea el registro de cierre de caso, unicamente cuando el resto de etapas ya están terminadas, 
+# Authorization: Bearer token_user 
+# Recibe como parámetro el id del caso
+# http://host:4000/psicoapp/v1/cases/close/:uuid
+POST {{host}}/close/0e4e9f69-59e8-475f-9482-0906aebbcdb2
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMDM3MzQxODQ4NDU1ODA0NjEyMjYiLCJpYXQiOjE2MDU1NTk2NzV9.lxkpi6rCzvztYwiCcnKa1ujJvq1y3oZRwBIGhSCuqHA
+Content-Type: application/json
+
+{
+    "conclusion": "Está loco",
+    "recommendation" : "Tome medicina"
+
+}
+
+###
+# Actualiza el registro de cierre de caso
+# Authorization: Bearer token_user
+# Recibe como parámetro el id del caso
+# http://host:4000/psicoapp/v1/cases/close/:uuid
+PUT {{hostdev}}/close/4a7131b1-51ba-4ae5-8b0b-74c5dddcb6de
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMDM3MzQxODQ4NDU1ODA0NjEyMjYiLCJpYXQiOjE2MDU1NTk2NzV9.lxkpi6rCzvztYwiCcnKa1ujJvq1y3oZRwBIGhSCuqHA
+Content-Type: application/json
+
+{
+    "conclusion": "Está reloco",
+    "recommendation" : "Tome más medicina fuerte"
+
+}
+
+###
+# Retorna un regiistro de cierre de caso 
+# Authorization: Bearer token_user
+# parámetros uuid del caso
+# http://host:4000/psicoapp/v1/cases/close/:uuid
+GET {{hostdev}}/close/4a7131b1-51ba-4ae5-8b0b-74c5dddcb6de
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMDM3MzQxODQ4NDU1ODA0NjEyMjYiLCJpYXQiOjE2MDU1NTk2NzV9.lxkpi6rCzvztYwiCcnKa1ujJvq1y3oZRwBIGhSCuqHA
+Content-Type: application/json

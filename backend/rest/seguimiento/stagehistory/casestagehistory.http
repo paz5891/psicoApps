@@ -1,0 +1,15 @@
+@hostdev = http://localhost:4000/psicoapp/v1/cases
+
+###
+# Crea una log de las diferentes fases en las que se pasa un caso
+# parameters: uuidcase
+# Authorization Bearer token_admin
+# http://host:4000/psicoapp/v1/cases/stagehistory/:uuidcase
+POST {{hostdev}}/stagehistory/:uuidcase
+Authorization: Bearer 
+Content-Type: multipart/form-data
+
+{
+    "comment":string,
+    "attachment": file
+}

@@ -1,0 +1,59 @@
+@host = http://localhost:4000/psicoapp/v1/cases/intermediate
+
+### Crea una actividad de plan terapeutica asociada al caso en la etapa intermedia
+#   paramatros uuidcase
+#   Authorization: Bearer token_user
+#   host:4000/psicoapp/v1/cases/intermediate/therapeuticplan/:uuidcase
+###
+POST {{host}}/therapeuticplan/uuid6
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJhZG1pbiIsInN1YiI6IjEwODgzNDI4NTU3NjYwMzAyMTg3NSIsImlhdCI6MTYwNTA1NTMyNH0.so4eniO3Jh1YJSjaZ7RKpU-Y2LG--Dl3E42KppryYsE
+Content-Type: application/json
+
+{
+    "aspectToWork": "Escritura",
+    "aspectToWorkFile": "Escritura File",
+    "objetives": "Aprender a Escribir", 
+    "objetivesFile": "Aprender a Escribir File",
+    "goals": "Que el niño escriba",
+    "goalsFile": "Que el niño escriba File",
+    "focus": "Introductorio",
+    "focusFile": "Introductorio File",
+    "techniques": "Aprestamiento",
+    "techniquesFile": "Aprestamiento"
+}
+
+###
+#   Para actualizar una actividad terapeutica, 
+#   paramatros necesarios: uuidcase y uuidterapeutic
+#   Authorization: Bearer token_user/psicologo
+#   Acá uno solo se envia un parametros por request de todos los que están en crear el plan
+#   host:psicoapp/v1/cases/intermediate/therapeuticplan/:uuidcase/:uuidactivity
+PUT {{host}}/therapeuticplan/80aa85c6-6bb7-4a39-a5c9-bf900c6ee23b/2202c181-ee08-45e0-910c-3fdcc570a71c
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJhZG1pbiIsInN1YiI6IjEwODgzNDI4NTU3NjYwMzAyMTg3NSIsImlhdCI6MTYwNTA1NTMyNH0.so4eniO3Jh1YJSjaZ7RKpU-Y2LG--Dl3E42KppryYsE
+Content-Type: application/json
+
+{
+    "aspectToWork": "Escrituras 4"
+}
+
+
+###
+#   Retorna todas las actividades del plan terapeutico asociadas a un caso en la etapa intermedia
+#   Paramatros: uuidcase
+#   Headers: Authorization: Bearer token_user || token_admin
+#   http://host:4000/psicoapp/v1/cases/intermediate/therapeuticplan/:uuidcase
+###
+GET {{host}}/therapeuticplan/80aa85c6-6bb7-4a39-a5c9-bf900c6ee23b
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJhZG1pbiIsInN1YiI6IjEwODgzNDI4NTU3NjYwMzAyMTg3NSIsImlhdCI6MTYwNTA1NTMyNH0.so4eniO3Jh1YJSjaZ7RKpU-Y2LG--Dl3E42KppryYsE
+Content-Type: application/json
+
+
+####
+## Retorna un actividad del plan terapeutico específico asociado al caso en la etapa intermedia
+## Parámetros: uuidcase y uuidactivityplan
+##  Authorization: Bearer token_user || token_admin
+## http://host:4000/psicoapp/v1/cases/intermediate/therapeuticplan/:uuidcase/:uuidactivity
+##
+GET {{host}}/therapeuticplan/80aa85c6-6bb7-4a39-a5c9-bf900c6ee23b/0d2a2202-9b04-4daa-ba00-9358dfa1a556
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJhZG1pbiIsInN1YiI6IjEwODgzNDI4NTU3NjYwMzAyMTg3NSIsImlhdCI6MTYwNTA1NTMyNH0.so4eniO3Jh1YJSjaZ7RKpU-Y2LG--Dl3E42KppryYsE
+Content-Type: application/json

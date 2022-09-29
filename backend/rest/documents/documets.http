@@ -1,0 +1,6 @@
+@host = http://localhost:4000/psicoapp/v1
+
+###
+GET {{host}}/attachment/7af2cdf0-3da5-488f-99e6-a4183d469169.jpeg
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMDM3MzQxODQ4NDU1ODA0NjEyMjYiLCJpYXQiOjE2MDU1NTk2NzV9.lxkpi6rCzvztYwiCcnKa1ujJvq1y3oZRwBIGhSCuqHA

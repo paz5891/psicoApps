@@ -1,0 +1,37 @@
+# @hostdev = http://138.197.215.60:4000/psicoapp/v1/cases
+
+@hostdev = http://localhost:4000/psicoapp/v1/cases
+
+###
+# Para crear una nota, use el stage history
+#---------------------------------------------------------------------------------------------------------------------------
+
+###
+# Retorna todos los comentarios asociados a todo el caso en general
+# paramatros: uuidcase
+# Authorization: Bearer token_admin || tokent_user
+# http://host:4000/psicoapp/v1/cases/:uuidcase/comments
+GET {{hostdev}}/0e4e9f69-59e8-475f-9482-0906aebbcdb2/comments
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJhZG1pbiIsInN1YiI6IjEwODgzNDI4NTU3NjYwMzAyMTg3NSIsImlhdCI6MTYwNjQ1MDQzOX0.kLIfijexBHNDDnw7dFIwIT106gexuWfzaYiziVJEr74
+
+###
+# Retorna un solo comentario asociado a todo el caso en general
+# paramatros:  uuidcomment
+# Authorization: Bearer token_admin || tokent_user
+# http://host:4000/psicoapp/v1/cases/comments/:uuidcomment
+GET {{hostdev}}/comments/102a9e47-77d1-48ab-b971-4dc81ed291c7
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJhZG1pbiIsInN1YiI6IjEwODgzNDI4NTU3NjYwMzAyMTg3NSIsImlhdCI6MTYwNjQ1MDQzOX0.kLIfijexBHNDDnw7dFIwIT106gexuWfzaYiziVJEr74
+
+###
+# Actualiza un registro de nota general al caso
+# parametros: uuidcomment
+# Authorization: Bearer token_user
+# http://host:4000/psicoapp/v1/cases/comments/:uuidcomment
+PUT {{hostdev}}/comments/102a9e47-77d1-48ab-b971-4dc81ed291c7
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMDM3MzQxODQ4NDU1ODA0NjEyMjYiLCJpYXQiOjE2MDY1MTY1MjV9.SjGJZbpfI7rfB7vCEwI0U8dlEOJi2RR0zMNsQRGZJjo
+Content-Type: multipart/form-data
+
+{
+    "comment":string,
+    "attachment":file
+}

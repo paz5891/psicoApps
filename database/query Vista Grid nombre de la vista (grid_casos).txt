@@ -1,0 +1,30 @@
+use piscoapp;
+
+SELECT PC.caseNumber,
+PSAS.firstName AS firstNameAssigned , PSAS.secondName AS secondNameAssigned, 
+PSAS.lastName AS lastNameAssigned, PSAS.secondLastName AS secondLastNameAssigned, 
+
+PSAS1.firstName AS firstNameOwner, PSAS1.secondName AS secondNameOwner, 
+PSAS1.lastName AS lastNameOwner, PSAS1.secondLastName AS secondLastNameOwner,
+
+YEAR(CURDATE())-YEAR(PSAS2.bornDate)  AS age,
+PSAS2.firstName AS firstNamePatient, PSAS2.secondName AS secondPatient, 
+PSAS2.lastName AS lastNamePatientr, PSAS2.secondLastName AS secondNamePatient,
+DATE_FORMAT(PC.creationDate, "%d / %m / %Y") AS creationDate,
+PST.name AS stage,
+PC.reasonForConsultation,
+PC.desisted
+
+FROM PAC_Case PC 
+
+INNER JOIN PAS_PersonUser PSPU ON PC.uuidAssignedUser = PSPU.uuid 
+INNER JOIN PAS_Person PSAS ON PSPU.uuid = PSAS.uuid
+
+INNER JOIN PAS_PersonUser PSPU1 ON PC.uuidOwnerUser = PSPU1.uuid 
+INNER JOIN PAS_Person PSAS1 ON PSPU1.uuid = PSAS1.uuid
+
+INNER JOIN PAS_PersonPatient PSP ON PC.uuidPersonPatient = PSP.uuid 
+INNER JOIN PAS_Person PSAS2 ON PSP.uuid = PSAS2.uuid
+
+INNER JOIN PAC_Stage PST ON PC.uuidStage = PST.uuid
+

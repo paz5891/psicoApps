@@ -1,0 +1,8 @@
+@hostdev = http://138.197.215.60:4000/psicoapp/v1/cases
+# @hostdev = http://localhost:4000/psicoapp/v1/cases
+
+###
+#GET a todos los campos de la tabla personpatient 
+GET {{hostdev}}/personpatient
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJhZG1pbiIsInN1YiI6IjEwODgzNDI4NTU3NjYwMzAyMTg3NSIsImlhdCI6MTYwNTA1NTMyNH0.so4eniO3Jh1YJSjaZ7RKpU-Y2LG--Dl3E42KppryYsE
+Content-Type: application/json

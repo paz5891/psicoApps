@@ -1,0 +1,11 @@
+### SI DESEA MAS ACCIONES CON LOS USUARIO REVISE EL user.http document
+
+@host = http://localhost:4000/auth/google
+
+POST {{host}}
+Content-Type: application/json
+
+{
+    "email":"lcisnerosm@miumg.edu.gt", 
+    "googleId":"1231231890898123"
+}

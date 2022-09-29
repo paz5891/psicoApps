@@ -1,0 +1,23 @@
+#### SI DESEA REALIZAR REGISTRO O LOGIN DE USUARIOS, REVISE EL auth.http document
+
+@hostdev = http://localhost:4000/psicoapp/v1/users
+# @hostdev = https://www.psicoapp.online:4000/psicoapp/v1/users
+###
+# Retorna todos los usuarios disponibles dentro del sistema tanto activos como inactivos
+GET {{hostdev}}
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJhZG1pbiIsInN1YiI6IjEwODgzNDI4NTU3NjYwMzAyMTg3NSIsImlhdCI6MTYwMzg2NDU0OSwiZXhwIjoxNjAzODY4MTQ5fQ.OF8yeybnu-KlKpXKS9d2zdbhfEGi9_QcpSZ8W4xP1lQ
+
+
+####
+## Modifica el estado del usuario, por defecto todos los usuarios se crean como inactivos
+## state = 0 || 1  donde 0 = inactivo y 1 = activo
+##  id = es el id = uuid que se recibe en la consulta GET http://localhost:4000/psicoapp/v1/users
+PUT {{hostdev}}
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJhZG1pbiIsInN1YiI6IjEwODgzNDI4NTU3NjYwMzAyMTg3NSIsImlhdCI6MTYwNjI2OTI3NX0.LlMvXqsbvl3IHbsRdFNsOl9NYdmtIq4_thdK1fgvfZ4
+
+{
+    "id":"103734184845580461226",
+    "state": 1
+}

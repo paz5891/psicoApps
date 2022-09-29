@@ -1,0 +1,44 @@
+# @hostdev = http://138.197.215.60:4000/psicoapp/v1/cases
+
+@hostdev = http://localhost:4000/psicoapp/v1/cases
+
+
+# Crea || abre un caso //uuidOwnerUser es quien abre el caso 
+# Authorization: Bearer token_Admin
+POST {{hostdev}}
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJhZG1pbiIsInN1YiI6IjEwODgzNDI4NTU3NjYwMzAyMTg3NSIsImlhdCI6MTYwNDQ2NTcxNSwiZXhwIjoxNjA0NDY5MzE1fQ.1r3g_5Ta9stBykpdLLKNdanRNjYEMxCTtmaVoxwMgLQ
+Content-Type: application/json
+
+{
+    "uuidAssignedUser": "103734184845580461226",
+    "uuidPersonPatient": "1d5dc89f-c67f-422a-9f04-d7a7797c7871",
+    "reasonForConsultation": "<h1>hola desde back</h1>"
+}
+
+###
+# Actualiza un caso en base al uuid
+# Authorization: Bearer token_Admin
+PUT {{hostdev}}/0013bec0-5b87-41d9-9112-98843f62c83e
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJhZG1pbiIsInN1YiI6IjEwODgzNDI4NTU3NjYwMzAyMTg3NSIsImlhdCI6MTYwNjQzMjgwMn0.yvfC5-byDcCT4AXu8HqRAbAp30UQnkNXEUEWR7Sa5R8
+
+{
+    "uuidAssignedUser": "103734184845580461226",
+    "uuidPersonPatient": "1d5dc89f-c67f-422a-9f04-d7a7797c7871",
+    "reasonForConsultation": "<p>Esta es una razón de reasignación de casos 2<p>"
+}
+
+###
+# Muestra todos los casos abiertos para un usuario en específico o todos los casos
+# para el usuario administrador
+GET {{hostdev}}
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMDM3MzQxODQ4NDU1ODA0NjEyMjYiLCJpYXQiOjE2MDYxMDc1NzN9.NSOnRlrmT04YWqy2pse73OBYlYDWavoc2sJriBWulOc
+Content-Type: application/json
+
+###
+#Get del caso en base al uuid de la persona
+GET {{hostdev}}/viewcase/d305f974-ae6e-4217-bb53-58390e129c43
+Content-Type: application/json
+###----------------------####
+###     Todos los casos |^|
+###----------------------####

@@ -1,0 +1,59 @@
+@host = http://localhost:4000/psicoapp/v1/cases/initial/testingapplication
+
+###
+### Este post sirve para crear un aplicación de prueba para el caso, donde se elige un tipo de test y 
+### un archivo o texto, deben mandar el uuid del caso
+POST {{host}}/0e4e9f69-59e8-475f-9482-0906aebbcdb2
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMDM3MzQxODQ4NDU1ODA0NjEyMjYiLCJpYXQiOjE2MDU1NTk2NzV9.lxkpi6rCzvztYwiCcnKa1ujJvq1y3oZRwBIGhSCuqHA
+Content-Type: application/json
+
+{
+    "uuidTestType":"testType2",
+    "testingApplication":"Application post2",
+    "testingApplicationFile":""
+}
+
+## Actualiza registro de caso de aplicaciones de pruebas; 
+# changefile = es un campo que siempre debe ir...
+# ...contiene el nombre del archivo, si no está disponible se reemplazara como null
+# y se encargara de devolver el nombre del archivo actual testingApplication-file = changefile
+#
+# Recibe como parámetro el id del caso
+###
+PUT {{host}}/0e4e9f69-59e8-475f-9482-0906aebbcdb2
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMDM3MzQxODQ4NDU1ODA0NjEyMjYiLCJpYXQiOjE2MDU1NTk2NzV9.lxkpi6rCzvztYwiCcnKa1ujJvq1y3oZRwBIGhSCuqHA
+Content-Type: application/json
+
+{
+    "uuidTestingApplication": "6a52d55c-a1e2-454d-ba59-8c427bf84cd5",
+    "uuidTestType":"testType3",
+    "testingApplication":"Application put5",
+    "testingApplicationFile":"",
+    "changefile": ""
+}
+
+### Retorna todos las aplicaciones de pruebas de cada caso
+GET {{host}}/all
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJhZG1pbiIsInN1YiI6IjEwODgzNDI4NTU3NjYwMzAyMTg3NSIsImlhdCI6MTYwNTA1NTMyNH0.so4eniO3Jh1YJSjaZ7RKpU-Y2LG--Dl3E42KppryYsE
+Content-Type: application/json
+
+
+
+
+
+### Retorna todos los tipos de pruebas 
+GET {{host}}/testtypes
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJhZG1pbiIsInN1YiI6IjEwODgzNDI4NTU3NjYwMzAyMTg3NSIsImlhdCI6MTYwNTA1NTMyNH0.so4eniO3Jh1YJSjaZ7RKpU-Y2LG--Dl3E42KppryYsE
+Content-Type: application/json
+
+### Retorna todos los aplicaciones de pruebas asociados a un paciente
+###
+GET  {{host}}/cfe9644e-9011-4103-9bb2-905b059387bb
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMDM3MzQxODQ4NDU1ODA0NjEyMjYiLCJpYXQiOjE2MDU1NTk2NzV9.lxkpi6rCzvztYwiCcnKa1ujJvq1y3oZRwBIGhSCuqHA
+Content-Type: application/json
+
+### Retorna x aplicacion de prueba asociado a un paciente
+### se requiere uuid del caso y uuid de la aplicacion de prueba
+GET {{host}}/cfe9644e-9011-4103-9bb2-905b059387bb/4ef5a5df-1e1e-4675-bd42-39c697627f92
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMDM3MzQxODQ4NDU1ODA0NjEyMjYiLCJpYXQiOjE2MDU1NTk2NzV9.lxkpi6rCzvztYwiCcnKa1ujJvq1y3oZRwBIGhSCuqHA
+Content-Type: application/json

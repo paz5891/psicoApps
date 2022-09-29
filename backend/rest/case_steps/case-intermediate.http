@@ -1,0 +1,19 @@
+# @hostdev = http://138.197.215.60:4000/psicoapp/v1/cases/intermediate
+@hostdev = http://localhost:4000/psicoapp/v1/cases/intermediate
+
+### Para crear archivo "O" texto del plan terapeutico 
+### debe enviar unicamente un valor por cada request
+### este sirve para crear y actualizar si ya existe el plan
+POST {{hostdev}}/2bb74658-1908-49ac-a9ca-1095067886a0
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJhZG1pbiIsInN1YiI6IjEwODgzNDI4NTU3NjYwMzAyMTg3NSIsImlhdCI6MTYwNTA1NTMyNH0.so4eniO3Jh1YJSjaZ7RKpU-Y2LG--Dl3E42KppryYsE
+Content-Type: application/json
+
+{
+    "therapeuticPlan": "plan terapeutico texto",
+    "therapeuticPlanFile": "plan terapeutico archivo"
+}
+
+###
+GET {{hostdev}}/28357cdc-0199-4011-8bd2-71002bdc9bf3
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJhZG1pbiIsInN1YiI6IjEwODgzNDI4NTU3NjYwMzAyMTg3NSIsImlhdCI6MTYwNTA1NTMyNH0.so4eniO3Jh1YJSjaZ7RKpU-Y2LG--Dl3E42KppryYsE
+Content-Type: application/json

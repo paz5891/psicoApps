@@ -1,0 +1,76 @@
+@hostdev = http://localhost:4000/psicoapp/v1/cases
+
+@host = http://138.197.215.60:4000/psicoapp/v1/cases
+
+##
+# Estos son todos los campos que se utilizan en la fase inicial del caso
+# Campos obligatorios: todos los que tengan (*)
+# 
+##
+POST {{host}}/initial/:uuidcase
+Content-Type: application/json
+
+{
+    "premorbidPersonality": " help me",
+    "premorbidPersonalityFile": "ayuda",
+    "currentProblem": "", (*)
+    "currentProblemFile": "",
+    "healthHistory": "",
+    "healthHistoryFile": "",
+    "sexualHistory": "",
+    "sexualHistoryFile": "",
+    "growthHistory": "",
+    "growthHistoryFile": "",
+    "perinatalHistory": "",
+    "perinatalHistoryFile": "",
+    "familyHistory": "",
+    "familyHistoryFile": "",
+    "genogramFile": "", (*)
+    "schoolHistory": "",
+    "schoolHistoryFile": "",
+    "workHistory": "",
+    "workHistoryFile": "",
+    "mentalEvaluationTest": "",(*)
+    "mentalEvaluationTestFile": "",(*)
+    "clinicalInterpretation": "",(*)
+    "clinicalInterpretationFile": "",(*)
+    "interpreationOfEvidence": "",(*)
+    "interpreationOfEvidenceFile": "",(*)
+    "therapeuticContract": "",(*)
+    "therapeuticContractFile": ""(*)
+}
+
+###
+# Retorna todos los casos en su fase inicial
+# Authorization: Bearer token_Admin
+##
+GET {{hostdev}}/initial
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJhZG1pbiIsInN1YiI6IjEwODgzNDI4NTU3NjYwMzAyMTg3NSIsImlhdCI6MTYwNDk5ODA0OX0.-tGu3FfQdwvz4a_2dVLngZrwAXCu-sedzP-HQINkS6c
+
+
+
+###
+# Retorna la información de un caso en su fase inicial
+# Authorization: Bearer token_user para obtener un caso inicial por usuario
+# Authorization: Bearer token_admin para obtener cualquier caso inicial
+# PARÁMETROS: host:4000/psicoapp/v1/cases/initial/:idcase
+##
+GET {{hostdev}}/initial/ea61d14b-1694-4604-ad11-b6fcda4dc988
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMDM3MzQxODQ4NDU1ODA0NjEyMjYiLCJpYXQiOjE2MDQ5NzM2OTF9.UsO9Q-jCIQD42qtmTz8qmIFidSipIEOZsxncNV5clqo
+Content-Type: application/json
+
+
+###
+# Actualiza un registro de caso en su fase inicial,... 
+# ...unicamente se permite un campo, se tomará el primero de entrada
+# Authorization: Bearer token_user
+# Parámetros: host:4000/psicoapp/v1/cases/initial/:idcase
+###
+POST {{hostdev}}/initial/4a7131b1-51ba-4ae5-8b0b-74c5dddcb6de
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMDM3MzQxODQ4NDU1ODA0NjEyMjYiLCJpYXQiOjE2MDQ5OTU1OTF9.QYDHtjd0LC4dh0miQgEwSISxIXD_7XXZ46ZUyhqJCqQ
+Content-Type: application/json
+
+{
+    "currentProblem": "Por favor revise su lectura y cambie algo"
+}

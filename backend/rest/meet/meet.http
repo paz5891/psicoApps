@@ -1,0 +1,69 @@
+@hostdev = http://138.197.215.60:4000/psicoapp/v1/cases/meet
+
+# @hostdev = http://localhost:4000/psicoapp/v1/cases/meet
+
+###
+# Crea un nuevo registro para una cita, pude asociarse al caso o a una actividad
+# Parametros: id del caso
+# Authorization: Bearer token_user || token_admin
+# http://host:4000/psicoapp/v1/cases/meet/:idcaso
+POST {{hostdev}}/c38dace9-35ef-4083-88b2-5b2e63e4800e
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMTMwNDIwNjE5NjE2MzgxNzA5NDgiLCJpYXQiOjE2MDYzNjYwMDR9.RtLyXxcUUl61T4GryZOD3e9Juw9okg0jGIfc7wFAx9Y
+
+{
+    
+    "title":"Esta es una cita",
+    "beginDate":"2020-11-28 00:00:00",
+    "endDate":"2020-11-28 00:00:00",
+    "latitude":"1212", 
+    "longitude":"12312" 
+}
+
+
+###
+# Retorna las citas de un caso por usuario
+# Querys: id del caso || id del plan terapeutico
+# Authorization: Bearer token_user || token_admin
+# http://host:4000/psicoapp/v1/cases/meet?case=:idcase
+# http://host:4000/psicoapp/v1/cases/meet?therapeutic=:idtherapeuticplanactivity
+GET {{hostdev}}?case=8761c042-acd1-439f-a49f-e71c9bba7d1e
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMTMwNDIwNjE5NjE2MzgxNzA5NDgiLCJpYXQiOjE2MDYxOTI5MDV9.MaIdvZKsFlKoYyHFFlE7fwEHCc4AVeLCAbG4Nz019PI
+
+
+###
+# Retorna una cita específica de un caso por usuario
+# Parametros: id del caso e id de la cita
+# Authorization: Bearer token_user || token_admin
+# http://host:4000/psicoapp/v1/cases/meet/:idcaso/:idmeet
+GET {{hostdev}}/0e4e9f69-59e8-475f-9482-0906aebbcdb2/8da24bdd-f5b3-4cfb-909e-39670c8d062f
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMTMwNDIwNjE5NjE2MzgxNzA5NDgiLCJpYXQiOjE2MDYzNjYwMDR9.RtLyXxcUUl61T4GryZOD3e9Juw9okg0jGIfc7wFAx9Y
+
+
+###
+# Actualiza un registro de cita, por usuario dueño de la cita
+# parámetros: id de la cita
+# Authorization: Bearer token_user || token_admin
+# http://host:4000/psicoapp/v1/cases/meet/:idmeet
+PUT {{hostdev}}/8da24bdd-f5b3-4cfb-909e-39670c8d062f
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMTMwNDIwNjE5NjE2MzgxNzA5NDgiLCJpYXQiOjE2MDYzNjYwMDR9.RtLyXxcUUl61T4GryZOD3e9Juw9okg0jGIfc7wFAx9Y
+
+{
+    "title":"string",
+    "beginDate":"datetime",
+    "endDate":"datetime",
+    "latitude":"number", //optional
+    "longitude":"number" //optional
+}
+
+
+###
+# Borra una cita en cualquier caso, por usuario dueño de la cita
+# Parámetros: id de la cita
+# Authorization: Bearer token_user || token_admin
+# http://host:4000/psicoapp/v1/cases/meet/:idmeet
+DELETE {{hostdev}}/e8a071fc-7563-4698-beba-1929aeadf3ecfff
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMTMwNDIwNjE5NjE2MzgxNzA5NDgiLCJpYXQiOjE2MDYzNjYwMDR9.RtLyXxcUUl61T4GryZOD3e9Juw9okg0jGIfc7wFAx9Y

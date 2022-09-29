@@ -1,0 +1,33 @@
+*No colocar el tipo de la seccion, ejemplo SECCION:PACIENTES = PACIENTES
+
+SECCION: PACIENTES
+    WIDGET: Pacientes por ubicacion
+        <iframe src="http://psicoapp.online:3000/d-solo/hEHeWahGk/psicoapp?orgId=1&from=1606249828553&to=1606271428554&panelId=14" width="450" height="200" frameborder="0"></iframe>
+    WIDGET: Pacientes por genero
+        <iframe src="http://psicoapp.online:3000/d-solo/hEHeWahGk/psicoapp?orgId=1&from=1606249849497&to=1606271449497&panelId=16" width="450" height="200" frameborder="0"></iframe>
+    WIDGET: Pacientes por rango de edad
+        <iframe src="http://psicoapp.online:3000/d-solo/hEHeWahGk/psicoapp?orgId=1&from=1606249891877&to=1606271491877&panelId=18" width="450" height="200" frameborder="0"></iframe>
+    WIDGET: Pacientes por religion
+        <iframe src="http://psicoapp.online:3000/d-solo/hEHeWahGk/psicoapp?orgId=1&from=1606249931775&to=1606271531775&panelId=19" width="450" height="200" frameborder="0"></iframe>
+
+SECCION: CASOS
+    WIDGET: Casos Activos
+        <iframe src="http://psicoapp.online:3000/d-solo/hEHeWahGk/psicoapp?orgId=1&from=1606249974285&to=1606271574285&panelId=21" width="450" height="200" frameborder="0"></iframe>
+    WIDGET: Casos Cerrados (Hoy)
+        <iframe src="http://psicoapp.online:3000/d-solo/hEHeWahGk/psicoapp?orgId=1&from=1606250021623&to=1606271621623&panelId=25" width="450" height="200" frameborder="0"></iframe>
+    WIDGET: Casos Cerrados (Mes)
+        <iframe src="http://psicoapp.online:3000/d-solo/hEHeWahGk/psicoapp?orgId=1&from=1606250039395&to=1606271639395&panelId=26" width="450" height="200" frameborder="0"></iframe>
+    WIDGET: Casos Cerrados (Año)
+        <iframe src="http://psicoapp.online:3000/d-solo/hEHeWahGk/psicoapp?orgId=1&from=1606250089940&to=1606271689940&panelId=27" width="450" height="200" frameborder="0"></iframe>
+    WIDGET: Casos por Psicologos
+        <iframe src="http://psicoapp.online:3000/d-solo/hEHeWahGk/psicoapp?orgId=1&from=1606250118130&to=1606271718130&panelId=2" width="450" height="200" frameborder="0"></iframe>
+    WIDGET: Casos por Psicologo por Etapa 
+        <iframe src="http://psicoapp.online:3000/d-solo/hEHeWahGk/psicoapp?orgId=1&from=1606250131986&to=1606271731986&panelId=8" width="450" height="200" frameborder="0"></iframe>
+    WIDGET: Casos desistidos (Por reasignar)
+        <iframe src="http://psicoapp.online:3000/d-solo/hEHeWahGk/psicoapp?orgId=1&from=1606250174059&to=1606271774059&panelId=23" width="450" height="200" frameborder="0"></iframe>
+    WIDGET: Casos por Psicologos(Barras)
+        <iframe src="http://psicoapp.online:3000/d-solo/hEHeWahGk/psicoapp?orgId=1&from=1606250207866&to=1606271807866&panelId=6" width="450" height="200" frameborder="0"></iframe>
+    WIDGET: Casos por etapa
+        <iframe src="http://psicoapp.online:3000/d-solo/hEHeWahGk/psicoapp?orgId=1&from=1606250248409&to=1606271848409&panelId=10" width="450" height="200" frameborder="0"></iframe>
+    WIDGET: Casos por diagnostico
+        <iframe src="http://psicoapp.online:3000/d-solo/hEHeWahGk/psicoapp?orgId=1&from=1606250279616&to=1606271879616&panelId=24" width="450" height="200" frameborder="0"></iframe>

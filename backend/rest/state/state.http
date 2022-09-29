@@ -1,0 +1,38 @@
+@hostdev = http://localhost:4000/psicoapp/v1/state
+
+#Sirve para agregar un nuevo departamento al país
+#En uuidCountry deberá ser enviado el id del país al que se le quiere asociar
+
+###
+POST {{hostdev}}
+Content-Type: application/json
+
+{
+    "uuidCountry": "001",
+    "name": "Alta Verapaz"
+}
+
+#Sirve para editar un departamento
+#Se debe enviar el uuid del departamento que se quiere editar
+
+###
+PUT {{hostdev}}/821e01e3-5869-4624-aa1b-c8786a739360
+Content-Type: application/json
+
+{
+    "uuidCountry": "001",
+    "name": "Alta Verapaz"
+}
+
+#solicitud para obtener todos los departamentos registrados
+
+###
+GET {{hostdev}}
+Content-Type: application/json
+
+#Solicitud para obtener un departamento en específico
+#Se debe enviar el uuid de departamento que se quiere obtener
+
+###
+GET {{hostdev}}/821e01e3-5869-4624-aa1b-c8786a739360
+Content-Type: application/json

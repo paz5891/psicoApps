@@ -1,0 +1,34 @@
+@host = http://138.197.215.60:4000/
+
+@hostdev = http://localhost:4000/psicoapp/v1/cases
+
+###
+#todos los casos
+GET {{hostdev}}/filter/0
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMDM3MzQxODQ4NDU1ODA0NjEyMjYiLCJpYXQiOjE2MDU1NTk2NzV9.lxkpi6rCzvztYwiCcnKa1ujJvq1y3oZRwBIGhSCuqHA
+Content-Type: application/json 
+###
+#Edad ascendente
+GET {{hostdev}}/filter/1/1
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMDM3MzQxODQ4NDU1ODA0NjEyMjYiLCJpYXQiOjE2MDU3Njg0MDN9.jF23KYmp1zjVY_uPdvwhGTmRSW5Wy8tx5bODp-Va1ZA
+###
+#Edad descendente
+GET {{hostdev}}/filter/1/2
+###
+#Fecha de creacion ascendente
+GET {{hostdev}}/filter/2/1
+###
+#Fecha de creacion descendente
+GET {{hostdev}}/filter/2/2
+###
+#Pendientes de asignar
+GET {{hostdev}}/filter/3
+###
+#desistidos
+GET {{hostdev}}/filter/4
+
+###
+# Obtiene los registros por consulta aleatoria, nombre o id
+# el filtro está unicamente por id o por numero de caso
+GET {{hostdev}}/byfilter?filter=2020
+

@@ -1,0 +1,54 @@
+@hostdev = http://localhost:4000/psicoapp/v1/diagnostic
+
+@host = http://138.197.215.60:4000
+
+###
+# Crear registro de caso de diagnóstico
+# Recibe como parámetro el id del caso
+# host:4000/psicoapp/v1/diagnostic/:uuidcase
+###
+POST {{hostdev}}/4a7131b1-51ba-4ae5-8b0b-74c5dddcb6de
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMDM3MzQxODQ4NDU1ODA0NjEyMjYiLCJpYXQiOjE2MDQ5NTUwNTF9.Zav_qOfadJ_AB8hn84xJQZ_yC7oxwkQEKvm-8GrQOiI
+Content-Type: application/json
+
+{
+    "uuidDSM5":"8b749896-d526-4f63-9c33-8296722e006a",
+    "descriptionOfProblem":"<p>Prueba de Post<p>",
+    "descriptionOfProblemFile":""
+}
+
+## Actualiza registro de caso de diagnóstico; 
+# changefile = es un campo que siempre debe ir...
+# ...contiene el nombre del archivo, si no está disponible se reemplazara como null
+# y se encargara de devolver el nombre del archivo actual descriptionofproblem-file = changefile
+#
+# Recibe como parámetro el id del caso
+# host:4000/psicoapp/v1/diagnostic/:uuidcase 
+###
+PUT {{hostdev}}/uuid6
+Content-Type: application/json
+
+{
+    "uuidDiagnosedProblems": "d2b54b5c-841b-4f5c-8833-afebd4497025",
+    "uuidDSM5":"T002",
+    "descriptionOfProblem":"<p>Esta es una actualización del texto<p>",
+    "descriptionOfProblemFile":"",
+    "changefile": ""
+}
+
+## Retorna todos los diagnósticos disponibles
+###
+GET {{hostdev}}
+Content-Type: application/json
+
+
+
+### Retorna todos los diagnósticos asociados a un paciente
+###
+GET  {{hostdev}}/2504524c-9e8a-4bbb-ae33-9efeafa6b0dd
+Content-Type: application/json
+
+## Retorna x diagnóstico asociado a un paciente
+###
+GET {{hostdev}}/single/4803e199-f9a1-4fcd-a7f3-94ac9be75db7
+Content-Type: application/json

@@ -1,0 +1,36 @@
+@host = http://localhost:4000/psicoapp/v1/religions
+
+#Crea un nuevo registro de una religión
+
+###
+POST {{host}}
+Content-Type: application/json
+
+{
+    "name": "Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola ",
+    "r_description": "Los trastornos alimenticios o trastornos de la conducta alimentaria engloban varias enfermedades crónicas y progresivas que, a pesar de que se manifiestan a través de la conducta alimentaria, en realidad consisten en una gama muy compleja de síntomas entre los que prevalece una alteración o distorsión de la auto-imagen corporal, un gran temor a subir de peso y la adquisición de una serie de valores a través de una imagen corporal, aunque hay ciertos trastornos alimentarios que hacen que una persona ingiera excesivamente alimentos."
+}
+
+#Actualiza la información de una religión
+#Requiere como parámetro el Id de la religión que se quiere editar
+###
+PUT {{host}}/8a24bf98-ee05-4769-8a11-a85ccee0972e
+Content-Type: application/json
+
+{
+    "name": "",
+    "r_description": ""
+}
+
+
+###
+# Devuelve todas las religiones
+GET {{host}}
+Content-Type: application/json
+
+
+#Este sirve para ver una religión en específico
+#Recibe como parámetro el id de la religión que se quiere ver
+###
+GET {{host}}/8a24bf98-ee05-4769-8a11-a85ccee0972e
+Content-Type: application/json

@@ -1,0 +1,40 @@
+@host = http://localhost:4000/psicoapp/v1/cases/initial/testtype
+
+#Esta ruta sirve para crear un nuevo tipo de prueba
+###
+POST {{host}}/new
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMDM3MzQxODQ4NDU1ODA0NjEyMjYiLCJpYXQiOjE2MDU1NTk2NzV9.lxkpi6rCzvztYwiCcnKa1ujJvq1y3oZRwBIGhSCuqHA
+Content-Type: application/json
+
+{
+    "name": "Comience a escribir en la caja del contador de caracteres o copie y pegue su texto Comience a escribir en la caja del contador de caracteres o copie y pegue su texto Comience a escribir en la caja del contador de caracteres o copie y pegue su texto Comience a escribir en la caja del contador de caracteres o copie y pegue su texto Comience a escribir en la caja del contador de caracteres o copie y pegue su texto Comience a escribir en la caja del contador de caracteres o copie y pegue su texto Comience a escribir en la caja del contador de caracteres o copie y pegue su texto Comience a escribir en la caja del contador de caracteres o copie y pegue su texto Comience a escribir en la caja del contador de caracteres o copie y pegue su texto Comience a escribir en la caja del contador de caracteres o copie y pegue su texto.",
+    "r_description": "La capacidad intelectual es uno de los aspectos que más se han evaluado a lo largo de la historia."
+}
+
+#Este actualiza un tipo de prueba en especifico
+#Requiere como parametro el uuid del tipo de prueba que se quiere modificar
+
+###
+PUT {{host}}/2f69c84f-2ba7-40d7-b95b-e4aed6f4b445
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMDM3MzQxODQ4NDU1ODA0NjEyMjYiLCJpYXQiOjE2MDU1NTk2NzV9.lxkpi6rCzvztYwiCcnKa1ujJvq1y3oZRwBIGhSCuqHA
+Content-Type: application/json
+
+{
+    "name": "Comience a escribir en la caja del contador de caracteres o copie y pegue su texto Comience a escribir en la caja del contador de caracteres o copie y pegue su texto Comience a escribir en la caja del contador de caracteres o copie y pegue su texto Comience a escribir en la caja del contador de caracteres o copie y pegue su texto Comience a escribir en la caja del contador de caracteres o copie y pegue su texto Comience a escribir en la caja del contador de caracteres o copie y pegue su texto Comience a escribir en la caja del contador de caracteres o copie y pegue su texto Comience a escribir en la caja del contador de caracteres o copie y pegue su texto Comience a escribir en la caja del contador de caracteres o copie y pegue su texto Comience a escribir en la caja del contador de caracteres o copie y pegue su texto.",
+    "r_description": "La presencia de problemas e incluso trastornos mentales es un elemento cada vez más frecuente en la sociedad actual."
+}
+
+#Retorna todos los tipos de pruebas que han sido agregados hasta la fecha
+
+###
+GET {{host}}/all
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMDM3MzQxODQ4NDU1ODA0NjEyMjYiLCJpYXQiOjE2MDU1NTk2NzV9.lxkpi6rCzvztYwiCcnKa1ujJvq1y3oZRwBIGhSCuqHA
+Content-Type: application/json
+
+#Retorna un tipo de prueba en específico
+#recibe como parámetro el uuid del tipo de prueba
+
+###
+GET {{host}}/2f69c84f-2ba7-40d7-b95b-e4aed6f4b445
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMDM3MzQxODQ4NDU1ODA0NjEyMjYiLCJpYXQiOjE2MDU1NTk2NzV9.lxkpi6rCzvztYwiCcnKa1ujJvq1y3oZRwBIGhSCuqHA
+Content-Type: application/json

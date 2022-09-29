@@ -1,0 +1,21 @@
+# @hostdev = http://138.197.215.60:4000/psicoapp/v1/persons/
+@hostdev = http://localhost:4000/psicoapp/v1/persons/
+
+####
+# Retorna registros por estado active o desactive de person
+# 0 = borrado o desactivado
+# 1 = activado 
+# CAMBIO A http://localhost:4000/psicoapp/v1/persons/grid/:stage = 0 || 1
+# 
+GET {{hostdev}}/grid/1
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJhZG1pbiIsInN1YiI6IjEwODgzNDI4NTU3NjYwMzAyMTg3NSIsImlhdCI6MTYwNTA1NTMyNH0.so4eniO3Jh1YJSjaZ7RKpU-Y2LG--Dl3E42KppryYsE
+
+###
+# Retorna registros que coincidan con el id de todos los registros de personas
+# en la base de datos
+# como ejemplo: id = 2020-PAS28-00024
+# CAMBIO A http://localhost:4000/psicoapp/v1/persons/gridbyid/:id
+GET {{hostdev}}/gridbyid/2020-PASP11
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJhZG1pbiIsInN1YiI6IjEwODgzNDI4NTU3NjYwMzAyMTg3NSIsImlhdCI6MTYwNTA1NTMyNH0.so4eniO3Jh1YJSjaZ7RKpU-Y2LG--Dl3E42KppryYsE
+
+

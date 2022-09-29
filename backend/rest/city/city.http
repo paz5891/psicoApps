@@ -1,0 +1,40 @@
+@host = http://localhost:4000/psicoapp/v1/cities
+
+#Sirve para crear los municipios de cada departamento
+#En el campo uuidState deberá ser enviado el uuid del departamento al que pertenece
+
+###
+POST {{host}}
+Content-Type: application/json
+
+{
+    "uuidState": "002",
+    "name": "Aguacatán"
+}
+
+#Sirve para actualizar los municipios de cada departamento
+#Es necesario enviar el uuid del municipio que se quiere editar
+#En el campo uuidState deberá ser enviado el uuid del departamento al que pertenece
+
+###
+PUT {{host}}/fc57b860-7312-40ee-93bd-913a2de01c4f
+Content-Type: application/json
+
+{
+    "uuidState": "002",
+    "name": "Aguacatán"
+}
+
+#Solicitud para mostrar todos los municipios registrados
+
+###
+GET {{host}}
+Content-Type: application/json
+
+#Solicitud para mostrar un municipio en específico
+#Es necesario enviar el uuid del municipio que se quiere obtener
+
+###
+GET {{host}}/fc57b860-7312-40ee-93bd-913a2de01c4f
+Content-Type: application/json
+

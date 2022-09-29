@@ -1,0 +1,55 @@
+@hostdev = http://localhost:4000/psicoapp/v1/cases
+
+###
+# Devuelve el estado en el que se encuentra el caso
+# 1 = estado inicial del caso
+# 2 = estado diagnostico del caso
+# 3 = estado intermedio del caso
+# 4 = estado finalizado del caso
+GET {{hostdev}}/stage/8761c042-acd1-439f-a49f-e71c9bba7d1e
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJhZG1pbiIsInN1YiI6IjEwODgzNDI4NTU3NjYwMzAyMTg3NSIsImlhdCI6MTYwNjQ1MDQzOX0.kLIfijexBHNDDnw7dFIwIT106gexuWfzaYiziVJEr74
+Content-Type: application/json
+
+###
+## Recibe como argumento el id del caso
+## Authorization: Bearer token_user
+## Response: 
+##  ok: true || false
+##  phase: number, of the phase for wizard
+##  data: string, uuid of the case
+##
+## host:4000/psicoapp/v1/cases/verifyinitialstage/:uuidcase
+###
+POST {{hostdev}}/verifyinitialstage/ea61d14b-1694-4604-ad11-b6fcda4dc988
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMDM3MzQxODQ4NDU1ODA0NjEyMjYiLCJpYXQiOjE2MDQ5NzM2OTF9.UsO9Q-jCIQD42qtmTz8qmIFidSipIEOZsxncNV5clqo
+Content-Type: application/json
+
+###
+## Recibe como argumento el id del caso
+## Authorization: Bearer token_user
+## Response: 
+##  ok: true || false
+##  phase: number, of the phase for wizard
+##  data: string, uuid of the case
+##
+## host:4000/psicoapp/v1/cases/verifydiagnostic/:uuidcase
+###
+POST {{hostdev}}/verifydiagnostic/50080d76-0036-4994-9997-03fa00c2636b
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMDM3MzQxODQ4NDU1ODA0NjEyMjYiLCJpYXQiOjE2MDU3Njg0MDN9.jF23KYmp1zjVY_uPdvwhGTmRSW5Wy8tx5bODp-Va1ZA
+Content-Type: application/json
+
+
+###
+###
+## Recibe como argumento el id del caso
+## Authorization: Bearer token_user
+## Response: 
+##  ok: true || false
+##  phase: number, of the phase for wizard
+##  data: string, uuid of the case
+##
+## host:4000/psicoapp/v1/cases/verifyintermediate/:uuidcase
+###
+POST {{hostdev}}/verifyintermediate/0e4e9f69-59e8-475f-9482-0906aebbcdb2
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2wiOiJtZW1iZXIiLCJzdWIiOiIxMDM3MzQxODQ4NDU1ODA0NjEyMjYiLCJpYXQiOjE2MDU1NTk2NzV9.lxkpi6rCzvztYwiCcnKa1ujJvq1y3oZRwBIGhSCuqHA
+Content-Type: application/json

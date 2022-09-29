@@ -1,0 +1,44 @@
+# Docker
+# Build a Docker image 
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger:
+  branches:
+    include:
+      - master
+  paths:
+    include:
+      - frontend/*
+
+pr: none
+resources:
+- repo: self
+
+variables:
+  tag: '$(Build.BuildId)'
+
+stages:
+- stage: Build
+  displayName: Build image
+  jobs:  
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+      - task: Docker@2
+        inputs:
+          containerRegistry: 'Psicoapp docker hub'
+          repository: 'psicoapp / frontpsicoapp'
+          command: 'buildAndPush'
+          Dockerfile: './frontend/Dockerfile'
+      - task: SSH@0
+        inputs:
+          sshEndpoint: 'psicoappumg'
+          runOptions: 'commands'
+          commands: |
+            docker ps -a -q --filter "name=frontpsicoapp" | grep -q . && docker stop frontpsicoapp && docker rm -fv frontpsicoapp || exit 0
+            echo "$(DHP)" | docker login --username '$(DHA)' --password-stdin 2>/dev/null
+            docker pull psicoapp/frontpsicoapp:$(tag)
+            docker run -v /etc/letsencrypt:/etc/letsencrypt --name frontpsicoapp -p 443:443 -d psicoapp/frontpsicoapp:$(tag)
+          readyTimeout: '20000'
